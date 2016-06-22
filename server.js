@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 var db = require('./config/connection.js')
-
+var Comment = require('./models/comments.js')
 var COMMENTS_FILE = path.join(__dirname, 'comments.json');
 
 app.set('port', (process.env.PORT || 3000));
