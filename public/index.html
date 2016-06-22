@@ -37,6 +37,7 @@
     var CommentList = React.createClass({
       render: function() {
         var commentNodes= this.props.data.map(function(comment){
+          console.log(comment)
           return (
             <Comment author={comment.author} key={comment.id}>
               {comment.text}
@@ -61,6 +62,14 @@
       },
       handleTextChange: function(e) {
         this.setState({text: e.target.value});
+      },
+      handleSubmit: function(e) {
+        e.preventDefault();
+        var author = this.state.author.trim();
+        var text = this.state.text.trim();
+        if(!text || !author) {
+          return;
+        }
       },
       render: function() {
         return (
