@@ -60,3 +60,9 @@ p, ul {
 ul {
   padding-left: 30px;
 }
+.commentBox {
+  background-color: red;
+}
+.commentForm {
+  background-color: teal;
+}
