@@ -33,7 +33,7 @@ app.get('/api/comments', function(req, res) {
   });
 });
 
-app.post('/api/c1omments', function(req, res) {
+app.post('/api/comments', function(req, res) {
   fs.readFile(COMMENTS_FILE, function(err, data) {
     if (err) {
       console.error(err);
