@@ -19,10 +19,11 @@ var Comment = React.createClass({
 });
 
 var CommentBox = React.createClass({
-  loadCommentsFromServer: function() {
+  loadCommentsFromServer: function(comment) {
     $.ajax({
-      url: this.props.url,
-      dataType: 'json',
+      url: 'api/create',
+      type: 'POST',
+      data:comment,
       cache: false,
       success: function(data) {
         this.setState({data: data});

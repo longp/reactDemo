@@ -26,6 +26,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/api/comments', function(req, res) {
+
   fs.readFile(COMMENTS_FILE, function(err, data) {
     if (err) {
       console.error(err);
@@ -34,6 +35,19 @@ app.get('/api/comments', function(req, res) {
     res.json(JSON.parse(data));
   });
 });
+
+app.post('/api/create', function (req,res) {
+  var newComment = new Comment({
+    author:'me',
+    text:'yoyo'
+  })
+  newComment.save().then(function (data,err) {
+    if (err) {
+      console.log(err)
+    }
+    console.log(data)
+  })
+})
 
 app.post('/api/comments', function(req, res) {
   fs.readFile(COMMENTS_FILE, function(err, data) {
